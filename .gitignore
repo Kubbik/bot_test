@@ -2,6 +2,7 @@ ven/
 .env
 inst.db
 requirements.txt
+bot.db
 
 # __pycache__
 filters/__pycache__/
