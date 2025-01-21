@@ -7,5 +7,3 @@ register_keyboard = ReplyKeyboardMarkup(keyboard=[
         )
     ]
 ], resize_keyboard=True, one_time_keyboard=True, input_field_placeholder='Для продолжения нажмите на кнопку ниже')
-
-200-25-42

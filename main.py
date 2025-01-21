@@ -11,6 +11,8 @@ from utils.commands import set_commands
 from handlers.start import get_start
 from state.register import RegisterState
 from handlers.register import start_register, register_name, register_phone
+from filters.checkAdmin import checkAdmin
+from handlers.admin.create import create_game
 
 load_dotenv()
 
@@ -20,9 +22,8 @@ admin_id = os.getenv('ADMIN_ID')
 bot = Bot(token=token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher()
 
+
 # функция приветствия
-
-
 async def start_bot(bot: Bot):
     await bot.send_message(admin_id, text='Бот каким-то чудом запустился:)')
 
@@ -33,6 +34,8 @@ dp.message.register(get_start, Command(commands='start'))
 dp.message.register(start_register, F.text == 'Зарегистрироваться на сайте')
 dp.message.register(register_name, RegisterState.regName)
 dp.message.register(register_phone, RegisterState.regPhone)
+# Регистрируем хендлеры с созданием игры
+dp.message.register(create_game, Command(commands='create'), checkAdmin())
 
 
 async def start():
