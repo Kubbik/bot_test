@@ -1,0 +1,11 @@
+ven/
+.env
+inst.db
+requirements.txt
+
+# __pycache__
+filters/__pycache__/
+handlers/__pycache__/
+keyboards/__pycache__/
+state/__pycache__/
+utils/__pycache__/
